@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+:root {
+  --font-dark: #202124;
+  --font-regular: #3c4043;
+  --font-light: #5f6368;
+  --background: #ffffff;
+  --border: #d6d6d6;
+  --border-light: #eaebec;
+  --element-light: #fafafb;
+  --element: #e7e7e8;
+  --card: #fff;
+  --primary: #36f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  color: var(--font-regular);
+  background: var(--background);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0px;
+}
+body header {
+  height: 52px;
+  flex: 0 0 auto;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--font-dark);
+}
+body div.app-container {
+  height: calc(100% - 52px);
+  overflow: auto;
+}
+
+div.app-tasks-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  padding: 12px;
+  gap: 12px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+div.app-tasks-container div.app-task-list {
+  min-height: 40px;
+  background: var(--element-light);
+  border-radius: 4px;
+  border: 1px solid var(--border-light);
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+div.app-tasks-container div.app-task-list.placeholder {
+  border: 1px solid var(--primary);
+  background: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 12px;
+  font-size: 12px;
+  color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+div.app-tasks-container div.app-task-list.placeholder:hover {
+  background: var(--element-light);
+}
+div.app-tasks-container div.app-task-list div.app-task-list-header {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  color: var(--font-regular);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+}
+div.app-tasks-container div.app-task-list div.app-task-list-header .app-icon {
+  margin-left: auto;
+}
+div.app-tasks-container div.app-task-list div.app-task-list-header .app-task-list-title {
+  flex: 1;
+  margin-right: 8px;
+}
+div.app-tasks-container div.app-task-list div.add-task-placeholder {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 4px;
+  color: var(--font-light);
+  font-weight: 400;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s linear;
+}
+div.app-tasks-container div.app-task-list div.add-task-placeholder:hover {
+  background: var(--element);
+}
+div.app-tasks-container div.app-task-list div.app-task {
+  min-height: 40px;
+  padding: 8px;
+}
+div.app-tasks-container div.app-task-list div.app-task div.app-task-content-wrapper {
+  border-radius: 4px;
+  min-height: 40px;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: flex-start;
+}
+div.app-tasks-container div.app-task-list div.app-task div.app-task-content-wrapper div.app-task-content {
+  flex: 1 0 auto;
+  align-self: stretch;
+  font-size: 12px;
+  color: var(--font-dark);
+  padding: 8px;
+  font-weight: 500;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  max-width: calc(100% - 40px);
+}
+div.app-tasks-container div.app-task-list div.app-task div.app-task-content-wrapper .app-icon {
+  margin: 12px;
+}
+div.app-tasks-container div.app-task-list div.app-task + div.app-task {
+  padding: 0px 8px 8px 8px;
+}
+div.app-tasks-container div.app-task-list.drop-here {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.app-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.app-icon.small {
+  width: 16px;
+  height: 16px;
+}
+.app-icon.primary.outlined svg {
+  stroke: var(--primary);
+}
+.app-icon.primary.filled svg {
+  fill: var(--primary);
+}
+.app-icon.outlined svg {
+  stroke: var(--font-light);
+}
+.app-icon.filled svg {
+  fill: var(--font-light);
+}
+.app-icon svg {
+  height: inherit;
+  width: inherit;
+  fill: var(--font-light);
+}
+.app-icon.clickable {
+  cursor: pointer;
+}
+.app-icon.clickable svg {
+  z-index: 2;
+}
+.app-icon.clickable:hover:before {
+  z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  border-radius: 50%;
+  background: var(--border-light);
+  transform: scale(2);
+  transform-origin: center;
+}
+
+* > .onhover {
+  visibility: hidden;
+}
+*:hover > .onhover {
+  visibility: visible;
+}
+
+.editable {
+  min-height: 12px;
+  padding: 4px;
+  border-radius: 4px;
+  outline: none;
+}
+.editable:focus {
+  box-shadow: 0 0 0 1px var(--primary);
+  outline: none;
+}
+
+/*# sourceMappingURL=main.css.map */
